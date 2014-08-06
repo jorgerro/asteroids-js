@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Asteroids</title>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 		<script src="vendor/jquery-1.9.1.js"></script>
     <script src="vendor/keymaster.js"></script>
     <script src="lib/inherits.js"></script>
@@ -13,10 +14,44 @@
 
     <style>
 		body {
-			font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
+			font-family: 'Press Start 2P', sans-serif;
 		}
+
+    li {
+      list-style: none;
+    }
+
+    h1 {
+      text-align: center
+    }
+
+    #main-content {
+      position: relative;
+      width: 1000px;
+      margin-left: auto; 
+      margin-right: auto;
+      box-shadow: 0 0 5px gold;
+    }
+
+    #golden-frame {
+      display: block;
+      z-index: -1;
+      width: 1000px;
+      height: auto;
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+
     canvas {
-      background: black;
+      position: absolute;
+      display: block;
+      margin-left: auto; 
+      margin-right: auto; 
+      background-image: url('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-3.jpg');
+      top: 115px;
+      left: 113px;
     }
     </style>
 </head>
@@ -31,7 +66,7 @@
 			$(document).ready(function() {
 	      var canvas = $("<canvas width='" + DIM_X +
                        "' height='" + DIM_Y + "'></canvas>");
-        $('body').append(canvas);
+        $('#main-content').append(canvas);
 				console.log('dim x', Asteroids.DIM_X);
 				console.log('canvas', canvas);
 	      var ctx = canvas.get(0).getContext("2d")
@@ -39,5 +74,17 @@
 	      game.start();
 			});
     </script>
+
+    <div id="main-content">
+      <img id="golden-frame" src="http://rosebriarplace.com/images/gold-frame.jpg">
+    </div>
 </body>
 </html>
+
+<!-- Fonts:
+Audiowide
+Fredoka One
+Lily Script One
+Monoton
+Press Start 2P
+Monofett -->
