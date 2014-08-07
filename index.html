@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Asteroids</title>
-    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 		<script src="vendor/jquery-1.9.1.js"></script>
     <script src="vendor/keymaster.js"></script>
     <script src="lib/inherits.js"></script>
@@ -16,14 +16,14 @@
 		body {
       background-color: #000;
       color: #fff;
-			font-family: 'Press Start 2P', sans-serif;
+			font-family: 'Poiret One', sans-serif;
 		}
 
     li {
       list-style: none;
     }
 
-    h1 {
+    h1, h3 {
       text-align: center
     }
 
@@ -44,26 +44,50 @@
       margin-right: auto; 
     }
 
+    #score {
+      position: absolute;
+      color: #000;
+      font-weight: bold;
+      background-color: #fff;
+      width: 145px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-align: center;
+      left: 431px;
+      top: 590px;
+    }
+
     canvas {
       position: absolute;
       display: block;
       margin-left: auto; 
       margin-right: auto; 
-      background-image: url('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-3.jpg');
+      background-image: url('http://31.media.tumblr.com/3d6e2a8fe75be051400d243611d9e8b4/tumblr_mfg4khvHLD1qg39ewo1_500.gif');
+      background-size: 100%;
       top: 115px;
       left: 113px;
     }
     </style>
 </head>
 <body>
-    <h1>Asteroids</h1>
+    <h1>:: Asteroids ::</h1>
+    <h3>Help Kirby save the planet Earth!</h3>
     <ul>
-      <li>'w', 'a', 's', 'd' to move</li>
+      <li>'w a s d' keys to move</li>
       <li>'space bar' to shoot</li>
     </ul>
 
     <script>
 			$(document).ready(function() {
+
+
+        // prevent default for space and arrow keys
+        window.addEventListener("keydown", function(e) {
+            if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                e.preventDefault();
+            }
+        }, false);
+
 	      var canvas = $("<canvas width='" + DIM_X +
                        "' height='" + DIM_Y + "'></canvas>");
         $('#main-content').append(canvas);
@@ -76,15 +100,10 @@
     </script>
 
     <div id="main-content">
+      <div id="score">Your score will be displayed here.</div>
       <img id="golden-frame" src="http://rosebriarplace.com/images/gold-frame.jpg">
     </div>
 </body>
 </html>
 
-<!-- Fonts:
-Audiowide
-Fredoka One
-Lily Script One
-Monoton
-Press Start 2P
-Monofett -->
+<!-- -->
