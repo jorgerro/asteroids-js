@@ -93,8 +93,6 @@
 	      var canvas = $("<canvas width='" + DIM_X +
                        "' height='" + DIM_Y + "'></canvas>");
         $('#main-content').append(canvas);
-				console.log('dim x', Asteroids.DIM_X);
-				console.log('canvas', canvas);
 	      var ctx = canvas.get(0).getContext("2d")
 	      var game  = new Asteroids.Game(ctx)
 	      game.start();
